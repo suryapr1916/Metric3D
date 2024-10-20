@@ -5,8 +5,7 @@ from .avg_meter import AverageMeter
 from collections import defaultdict, OrderedDict
 import os
 import socket
-#import mono.mmseg as mmseg
-# import mmseg
+
 import time
 import datetime
 import logging
