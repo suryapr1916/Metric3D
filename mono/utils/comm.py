@@ -5,11 +5,6 @@ from .avg_meter import AverageMeter
 from collections import defaultdict, OrderedDict
 import os
 import socket
-from mmcv.utils import collect_env as collect_base_env
-try:
-    from mmcv.utils import get_git_hash
-except:
-    from mmengine.utils import get_git_hash
 #import mono.mmseg as mmseg
 # import mmseg
 import time
@@ -51,14 +46,6 @@ def _is_free_port(port):
     ips.append('localhost')
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         return all(s.connect_ex((ip, port)) != 0 for ip in ips)
-
-
-# def collect_env():
-#     """Collect the information of the running environments."""
-#     env_info = collect_base_env()
-#     env_info['MMSegmentation'] = f'{mmseg.__version__}+{get_git_hash()[:7]}'
-
-#     return env_info
 
 def init_env(launcher, cfg):
     """Initialize distributed training environment.
